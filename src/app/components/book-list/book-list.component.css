@@ -1,0 +1,14 @@
+li {
+    border: none;
+    background: #CCC;
+    margin: 5px;
+    /* width: 380px; */
+    cursor: pointer;
+}
+
+li:hover {
+    background: #AAA;
+}
+small {
+    font-family: 'Courier New', Courier, monospace;
+}

@@ -3,14 +3,24 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { SearchComponent } from './components/search/search.component';
+import { BookListComponent } from './components/book-list/book-list.component';
+import { BookWishlistComponent } from './components/book-wishlist/book-wishlist.component';
+import { LibraryComponent } from './components/library/library.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    SearchComponent,
+    BookListComponent,
+    BookWishlistComponent,
+    LibraryComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

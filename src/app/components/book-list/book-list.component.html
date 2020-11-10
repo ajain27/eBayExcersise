@@ -1,0 +1,19 @@
+<div class="col-12 p-0">
+  <ul class="list-group mt-3 mr-0" style="height: 500px; width: 100%; overflow-y: scroll;">
+    <li class="list-group-item" *ngFor="let item of books" >
+      <div class="row">
+        <div class="col-4">
+          <img src="{{item.volumeInfo.imageLinks.smallThumbnail}}" alt="" class="img-thumbnail">
+        </div>
+        <div class="col-8">
+          <p><strong>Title:</strong><small class="ml-2">{{item.volumeInfo.title}}</small></p>
+          <p><strong>Author:</strong><small class="ml-2">{{item.volumeInfo.title}}</small></p>
+          <p><strong>Publisher:</strong><small class="ml-2">{{item.volumeInfo.publisher}}</small></p>
+          <p><strong>Publish Date:</strong><small class="ml-2">{{item.volumeInfo.publishedDate | date:'mediumDate'}}</small></p>
+
+          <button class="btn btn-info">Add to wishlist</button>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>
