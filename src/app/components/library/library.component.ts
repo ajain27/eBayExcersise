@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { BooksService } from '../../services/books.service';
 
 @Component({
@@ -6,13 +6,15 @@ import { BooksService } from '../../services/books.service';
   templateUrl: './library.component.html',
   styleUrls: ['./library.component.css']
 })
-export class LibraryComponent implements OnInit, AfterViewInit {
+export class LibraryComponent implements OnInit {
 
+  public wishList;
   constructor(private _bookService: BooksService) { }
 
-  ngOnInit() {  }
+  ngOnInit() {}
 
-  ngAfterViewInit(): void {
-    // this.getBooks();
+  public getWishListBooks(e) {
+    this.wishList = e;
   }
+
 }

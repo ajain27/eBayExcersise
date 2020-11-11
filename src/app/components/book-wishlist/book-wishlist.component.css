@@ -1,0 +1,27 @@
+li {
+    border: none;
+    background: #CCC;
+    margin: 5px;
+    cursor: pointer;
+    list-style: none;
+    height: 115px;
+}
+
+li:hover {
+    background: #AAA;
+}
+small {
+    font-family: 'Courier New', Courier, monospace;
+}
+
+.wishlist {
+    padding: 0;
+    overflow-y: scroll;
+}
+
+.wishListData {
+    line-height: 13px;
+    position: relative;
+    left: -25px;
+    top: 7px;
+}

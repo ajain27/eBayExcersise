@@ -4,13 +4,14 @@
   </nav>
 </div>
 <div class="container">
+  {{wishList}}
   <div class="row">
     <div class="col-8">
       <app-search></app-search>
       <app-book-list></app-book-list>
     </div>
     <div class="col-4">
-      <app-book-wishlist></app-book-wishlist>
+      <app-book-wishlist (data) = getWishListBooks($vent)></app-book-wishlist>
     </div>
   </div>
 </div>

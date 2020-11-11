@@ -1,4 +1,20 @@
-<div class="alert alert-dark mt-3 pb-1 pt-1">
+<div class="alert alert-dark mt-3 pb-1 pt-1 text-center">
   My reading Wishlist
 </div>
-<div class="card col-12" style="height: 400px;"></div>
+<div class="card col-12 wishlist" >
+  <ul class="list-group mt-3 mr-0" style="height: 500px; width: 100%;">
+  <li *ngFor="let book of wishListArray" >
+    <div class="row">
+      <div class="col-4">
+        <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" alt="" class="img-thumbnail">
+      </div>
+      <div class="col-8 wishListData">
+        <p class="mb-0"><strong style="font-size: 12px;">Title:</strong><small class="ml-2">{{book.volumeInfo.title}}</small></p>  
+        <p class="mb-0"><strong style="font-size: 12px;">Author:</strong><small class="ml-2">{{book.volumeInfo.authors}}</small></p>
+        <p class="mb-0"><strong style="font-size: 12px;">Publisher:</strong><small class="ml-2">{{book.volumeInfo.publisher}}</small></p>
+        <p class="mb-0"><strong style="font-size: 12px;">Publish Date:</strong><small class="ml-2">{{book.volumeInfo.publishedDate | date:'mediumDate'}}</small></p>
+      </div>
+    </div>
+  </li>
+</ul>
+</div>

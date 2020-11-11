@@ -1,17 +1,16 @@
 <div class="col-12 p-0">
   <ul class="list-group mt-3 mr-0" style="height: 500px; width: 100%; overflow-y: scroll;">
-    <li class="list-group-item" *ngFor="let item of books" >
+    <li class="list-group-item" *ngFor="let book of books; let i = index" >
       <div class="row">
         <div class="col-4">
-          <img src="{{item.volumeInfo.imageLinks.smallThumbnail}}" alt="" class="img-thumbnail">
+          <img src="{{book.volumeInfo.imageLinks.smallThumbnail}}" alt="" class="img-thumbnail">
         </div>
         <div class="col-8">
-          <p><strong>Title:</strong><small class="ml-2">{{item.volumeInfo.title}}</small></p>
-          <p><strong>Author:</strong><small class="ml-2">{{item.volumeInfo.title}}</small></p>
-          <p><strong>Publisher:</strong><small class="ml-2">{{item.volumeInfo.publisher}}</small></p>
-          <p><strong>Publish Date:</strong><small class="ml-2">{{item.volumeInfo.publishedDate | date:'mediumDate'}}</small></p>
-
-          <button class="btn btn-info">Add to wishlist</button>
+          <p><strong>Title:</strong><small class="ml-2">{{book.volumeInfo.title}}</small></p>
+          <p><strong>Author:</strong><small class="ml-2">{{book.volumeInfo.authors}}</small></p>
+          <p><strong>Publisher:</strong><small class="ml-2">{{book.volumeInfo.publisher}}</small></p>
+          <p><strong>Publish Date:</strong><small class="ml-2">{{book.volumeInfo.publishedDate | date:'mediumDate'}}</small></p>
+          <button class="btn btn-info" (click)="addBookToWishList(book)" >Add to wishlist</button>
         </div>
       </div>
     </li>
