@@ -1,7 +1,6 @@
 import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { BooksService } from '../../services/books.service';
 import { Book } from '../../models/book';
-import { find } from 'rxjs/operators';
 
 @Component({
   selector: 'app-book-list',
