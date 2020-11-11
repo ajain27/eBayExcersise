@@ -11,13 +11,14 @@ import { from, of } from 'rxjs';
 export class BookWishlistComponent implements OnInit {
 
   public wishList: Book;
-  wishListArray: Book[] = [];
-  constructor(private _bookService: BooksService) {
+  public wishListArray: Book[] = [];
+  public wishListLength = 0;
+  constructor(private _bookService: BooksService) {}
+
+  ngOnInit() {
     this._bookService.book.subscribe((res: any) => {
       this.wishListArray.push(res);
-      console.log(this.wishListArray);
+      this.wishListLength = this.wishListArray.length;
     });
-   }
-
-  ngOnInit() { }
+  }
 }
