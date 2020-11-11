@@ -30,7 +30,5 @@ export class BookListComponent implements OnInit, AfterViewInit {
 
   public addBookToWishList(book: Book) {
     this._bookService.book.next(book);
-    // console.log(this._bookService.book.next(book));
-    // this.data.emit(book);
   }
 }
