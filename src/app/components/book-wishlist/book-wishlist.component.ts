@@ -17,8 +17,10 @@ export class BookWishlistComponent implements OnInit {
 
   ngOnInit() {
     this._bookService.book.subscribe((res: any) => {
-      this.wishListArray.push(res);
-      this.wishListLength = this.wishListArray.length;
+      if (this.wishListArray.indexOf(res) === -1) {
+        this.wishListArray.push(res);
+      }
+        this.wishListLength = this.wishListArray.length;
     });
   }
 }

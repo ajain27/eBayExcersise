@@ -7,7 +7,7 @@
   {{wishList}}
   <div class="row">
     <div class="col-8">
-      <app-search></app-search>
+      <app-search (data)="gettingFilteredResults($event)"></app-search>
       <app-book-list></app-book-list>
     </div>
     <div class="col-4">

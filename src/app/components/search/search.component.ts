@@ -1,7 +1,7 @@
-import { AfterViewInit, Component, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, OnInit, Output, ViewChild, EventEmitter } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { BooksService } from '../../services/books.service';
-import { debounceTime, distinctUntilChanged, pluck, switchMap, tap, map } from 'rxjs/operators';
+// import { debounceTime, distinctUntilChanged, pluck, switchMap, tap, map } from 'rxjs/operators';
 import { Book } from '../../models/book';
 
 
@@ -12,8 +12,10 @@ import { Book } from '../../models/book';
 })
 export class SearchComponent implements OnInit, AfterViewInit {
 
-  @ViewChild('search') lookUpBook: NgForm;
-  public searchResults: any;
+  // @ViewChild('search') lookUpBook: NgForm;
+  @Output() data: EventEmitter<string> = new EventEmitter();
+  // public searchResults: any;
+  public searchedText: any;
 
   constructor(private _bookService: BooksService) { }
 
@@ -23,22 +25,28 @@ export class SearchComponent implements OnInit, AfterViewInit {
     this.searchBook();
   }
 
-  public searchBook(enteredValue?: string) {
-    const formValue = this.lookUpBook.valueChanges;
-    formValue.pipe(
-      pluck('search'),
-      debounceTime(1000),
-      distinctUntilChanged(),
-      // map(book => book),
-      switchMap((book: string) =>
-        this._bookService.searchBook(book))
-    ).subscribe((result) => {
-      this.searchResults = result.items;
-      this.searchResults.forEach((value, key) => {
-        if (key === enteredValue) {
-          this.searchResults.concat(key);
-        }
-      });
+  // public searchBook(enteredValue?: string) {
+  //   const formValue = this.lookUpBook.valueChanges;
+  //   formValue.pipe(
+  //     pluck('search'),
+  //     debounceTime(1000),
+  //     distinctUntilChanged(),
+  //     // map(book => book),
+  //     switchMap((book: string) =>
+  //       this._bookService.searchBook(book))
+  //   ).subscribe((result) => {
+  //     this.searchResults = result.items;
+  //     this.searchResults.forEach((value, key) => {
+  //       if (key === enteredValue) {
+  //         this.searchResults.concat(key);
+  //       }
+  //     });
+  //   });
+  // }
+
+  public searchBook() {
+    setTimeout(() => {
+      this.data.emit(this.searchedText);
     });
   }
 

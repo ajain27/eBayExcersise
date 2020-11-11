@@ -8,7 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class LibraryComponent implements OnInit {
 
   public wishList;
+  public searchText: any = '';
   constructor() { }
 
   ngOnInit() {}
+
+  public gettingFilteredResults(e: Event): void {
+    this.searchText = e;
+  }
 }
