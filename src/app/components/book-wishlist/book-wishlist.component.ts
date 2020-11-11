@@ -13,6 +13,7 @@ export class BookWishlistComponent implements OnInit {
   public wishList: Book;
   public wishListArray: Book[] = [];
   public wishListLength = 0;
+  public readingWishListText = 'My Reading Wishlist';
   constructor(private _bookService: BooksService) {}
 
   ngOnInit() {
