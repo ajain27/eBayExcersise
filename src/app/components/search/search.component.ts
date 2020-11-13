@@ -18,9 +18,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
 
   constructor(private _bookService: BooksService) { }
 
-  ngOnInit() {
-    // console.log(this.inventory.find(this.findCherries));
-  }
+  ngOnInit() { }
 
   ngAfterViewInit(): void {
     this.searchBook();
