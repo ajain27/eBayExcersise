@@ -1,5 +1,5 @@
 <form #search="ngForm">
-    <input type="text" ngModel class="form-control mt-3" placeholder="Search a book" name="search">
+    <input type="text" [(ngModel)]="searchedText" class="form-control mt-3" placeholder="Search a book" name="search" (input)="searchBook()">
 <i id="filtersubmit" class="fa fa-search"></i>
 </form>
 

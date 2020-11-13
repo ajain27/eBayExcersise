@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, OnInit, Output, ViewChild } from '@angular/core';
 import { BooksService } from '../../services/books.service';
 import { Book } from '../../models/book';
 
@@ -10,8 +10,8 @@ import { Book } from '../../models/book';
 export class BookListComponent implements OnInit, AfterViewInit {
 
   public books: any;
+  public searchResults: Book;
   @ViewChild('book') book: ElementRef;
-  @Output() data: EventEmitter<any> = new EventEmitter();
 
   constructor(private _bookService: BooksService) { }
 
@@ -19,6 +19,12 @@ export class BookListComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.getBooks();
+    setTimeout(() => {
+      this._bookService.searchedBook.subscribe((searchedBook: Book) => {
+        this.searchResults = searchedBook;
+        console.log('--searchResults--', searchedBook);
+      });
+    }, 2000);
   }
 
   public getBooks() {

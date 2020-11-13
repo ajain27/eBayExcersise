@@ -12,14 +12,15 @@ import { Book } from '../../models/book';
 })
 export class SearchComponent implements OnInit, AfterViewInit {
 
-  // @ViewChild('search') lookUpBook: NgForm;
+  @ViewChild('search') lookUpBook: NgForm;
   @Output() data: EventEmitter<string> = new EventEmitter();
-  // public searchResults: any;
-  public searchedText: any;
+  public searchedText: Book;
 
   constructor(private _bookService: BooksService) { }
 
-  ngOnInit() { }
+  ngOnInit() {
+    // console.log(this.inventory.find(this.findCherries));
+  }
 
   ngAfterViewInit(): void {
     this.searchBook();
@@ -45,9 +46,7 @@ export class SearchComponent implements OnInit, AfterViewInit {
   // }
 
   public searchBook() {
-    setTimeout(() => {
-      this.data.emit(this.searchedText);
-    });
+    this._bookService.searchedBook.next(this.searchedText);
   }
-
 }
+

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Book } from '../../models/book';
 
 @Component({
   selector: 'app-library',
@@ -7,13 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LibraryComponent implements OnInit {
 
-  public wishList;
+  public wishList: Book;
   public searchText: any = '';
+  public searchedBook: any = '';
   constructor() { }
 
   ngOnInit() {}
-
-  public gettingFilteredResults(e: Event): void {
-    this.searchText = e;
-  }
 }

@@ -9,6 +9,7 @@ import { Book } from '../models/book';
 export class BooksService {
 
   book = new Subject<Book>();
+  searchedBook = new Subject<Book>();
 
   constructor(private _http: HttpClient) { }
 
