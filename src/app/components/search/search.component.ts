@@ -13,7 +13,7 @@ import { Book } from '../../models/book';
 export class SearchComponent implements OnInit, AfterViewInit {
 
   @ViewChild('search') lookUpBook: NgForm;
-  @Output() data: EventEmitter<string> = new EventEmitter();
+  @Output() data: EventEmitter<Book> = new EventEmitter();
   public searchedText: Book;
 
   constructor(private _bookService: BooksService) { }
@@ -43,8 +43,12 @@ export class SearchComponent implements OnInit, AfterViewInit {
   //   });
   // }
 
+  // public searchBook() {
+  //   this._bookService.searchedBook.next(this.searchedText);
+  // }
+
   public searchBook() {
-    this._bookService.searchedBook.next(this.searchedText);
+    this.data.emit(this.searchedText);
   }
 }
 

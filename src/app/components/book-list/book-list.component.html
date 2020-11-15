@@ -1,6 +1,6 @@
 <div class="col-12 p-0">
-<!-- <app-search (data)="getFilteredResults($event)"></app-search> -->
-  <ul class="list-group mt-3 mr-0" style="height: 500px; width: 100%; overflow-y: scroll;">
+<app-search (data)="getFilteredResults($event)"></app-search>
+  <ul class="list-group mt-3 mr-0">
     <li class="list-group-item" *ngFor="let book of books | filter:searchResults">
       <div class="row">
         <div class="col-4">

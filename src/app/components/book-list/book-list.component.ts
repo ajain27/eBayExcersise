@@ -19,21 +19,21 @@ export class BookListComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit(): void {
     this.getBooks();
-    setTimeout(() => {
-      this._bookService.searchedBook.subscribe((searchedBook: Book) => {
-        this.searchResults = searchedBook;
-        console.log('--searchResults--', searchedBook);
-      });
-    }, 2000);
   }
 
   public getBooks() {
     this._bookService.getBooks().subscribe(books => {
       this.books = books.items;
+      console.log(this.books);
     });
   }
 
   public addBookToWishList(book: Book) {
     this._bookService.book.next(book);
+  }
+
+  public getFilteredResults(e) {
+    console.log(e);
+    this.searchResults = e;
   }
 }

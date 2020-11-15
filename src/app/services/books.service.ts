@@ -17,6 +17,10 @@ export class BooksService {
     return this._http.get('assets/books.json');
   }
 
+  public test(): Observable<any> {
+    return this._http.get('assets/test.json');
+  }
+
   public searchBook(name: string): Observable<Book> {
     const params = new HttpParams();
     params.append('search', name);
